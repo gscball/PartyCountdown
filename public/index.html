@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Thirteen Hour Party</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+
+    <style>
+    h1 {
+        font-family: lato;
+        font-size: 800%;
+        text-align: center;
+        color: white;
+    }
+    p {
+      text-align: center;
+    }
+    iframe {
+      display: block;
+      width: 100%;
+    }
+    .timer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    body {
+        background-color: black;
+        overflow:hidden;
+    }
+    .logo {
+      position: absolute;
+      top: 100%;
+      left: 85%;
+      transform: translate(-50%, -50%);
+      width: 10%;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <h1 class="timer" id="index"></h1>
+
+    <iframe src="https://giphy.com/embed/A1G93cCUmOHsY" width="1440" height="1086" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <p><a href="https://giphy.com/gifs/trippy-psychedelic-beach-A1G93cCUmOHsY">via GIPHY</a></p>
+    <img class="logo" src="logo.png"></img>
+
+      <script>
+      var countDownDate = new Date("Jun 1, 2018 07:00:00").getTime();
+      var x = setInterval(function() {
+
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          document.getElementById("index").innerHTML = hours + "h "
+          + minutes + "m " + seconds + "s ";
+
+          if (distance < 0) {
+              clearInterval(x);
+              document.getElementById("index").innerHTML = "EXPIRED";
+          }
+      }, 1000);
+      </script>
+
+  </body>
+</html>
